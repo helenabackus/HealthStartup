@@ -1,0 +1,656 @@
+{
+  "note": "Synthetic planning data only. Do not use real health information.",
+  "users": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "email": "synthetic.patient@example.invalid"
+    }
+  ],
+  "patient_profiles": [
+    {
+      "id": "00000000-0000-4000-8000-000000000101",
+      "user_id": "00000000-0000-4000-8000-000000000001",
+      "legal_name": "Alex Sample",
+      "birth_date": "1988-04-12",
+      "phone": "555-0100",
+      "email": "synthetic.patient@example.invalid",
+      "address": {
+        "line1": "100 Example Street",
+        "city": "Sampletown",
+        "state": "CA",
+        "postal_code": "90000"
+      },
+      "emergency_contact": null
+    }
+  ],
+  "source_organizations": [
+    {
+      "id": "00000000-0000-4000-8000-000000000201",
+      "name": "Riverbend Health Sandbox",
+      "source_type": "mychart_health_system",
+      "is_synthetic": true
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000202",
+      "name": "Apple Health Synthetic Export",
+      "source_type": "apple_health",
+      "is_synthetic": true
+    }
+  ],
+  "source_connections": [
+    {
+      "id": "00000000-0000-4000-8000-000000000301",
+      "patient_profile_id": "00000000-0000-4000-8000-000000000101",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "connection_state": "connected_sandbox"
+    }
+  ],
+  "import_batches": [
+    {
+      "id": "00000000-0000-4000-8000-000000000401",
+      "source_connection_id": "00000000-0000-4000-8000-000000000301",
+      "status": "completed",
+      "imported_record_count": 42,
+      "summary": {
+        "medications": 6,
+        "allergies": 2,
+        "conditions": 4,
+        "laboratory_results": 12,
+        "procedures": 3,
+        "immunizations": 4,
+        "encounters": 5,
+        "other": 6
+      }
+    }
+  ],
+  "raw_source_records": [
+    {
+      "id": "00000000-0000-4000-8000-000000000501",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "MedicationStatement",
+      "source_record_id": "synthetic-medstmt-001",
+      "content_hash": "synthetic-hash-501",
+      "imported_state": "uncertain",
+      "raw_payload": {
+        "resourceType": "MedicationStatement",
+        "id": "synthetic-medstmt-001",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril 10 mg tablet"
+        },
+        "effectiveDateTime": "2021-04-12"
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000502",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "AllergyIntolerance",
+      "source_record_id": "synthetic-allergy-001",
+      "content_hash": "synthetic-hash-502",
+      "imported_state": "unconfirmed",
+      "raw_payload": {
+        "resourceType": "AllergyIntolerance",
+        "id": "synthetic-allergy-001",
+        "clinicalStatus": {
+          "text": "active"
+        },
+        "code": {
+          "text": "Penicillin"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "rash"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000503",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Observation",
+      "source_record_id": "synthetic-lab-001",
+      "content_hash": "synthetic-hash-503",
+      "imported_state": "historical",
+      "raw_payload": {
+        "resourceType": "Observation",
+        "id": "synthetic-lab-001",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin A1c"
+        },
+        "valueQuantity": {
+          "value": 5.4,
+          "unit": "%"
+        },
+        "effectiveDateTime": "2024-09-10"
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000504",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "MedicationRequest",
+      "source_record_id": "synthetic-medreq-002",
+      "content_hash": "synthetic-hash-504",
+      "imported_state": "incomplete",
+      "raw_payload": {"resourceType":"MedicationRequest","id":"synthetic-medreq-002","status":"active","medicationCodeableConcept":{"text":"Metformin"},"authoredOn":"2026-05-20"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000505",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "MedicationRequest",
+      "source_record_id": "synthetic-medreq-003",
+      "content_hash": "synthetic-hash-505",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"MedicationRequest","id":"synthetic-medreq-003","status":"stopped","medicationCodeableConcept":{"text":"Amoxicillin 500 mg"},"authoredOn":"2019-02-01"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000506",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "MedicationStatement",
+      "source_record_id": "synthetic-medstmt-004",
+      "content_hash": "synthetic-hash-506",
+      "imported_state": "duplicate",
+      "raw_payload": {"resourceType":"MedicationStatement","id":"synthetic-medstmt-004","status":"active","medicationCodeableConcept":{"text":"Albuterol inhaler"},"effectiveDateTime":"2025-08-10"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000507",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000202",
+      "fhir_resource_type": "MedicationStatement",
+      "source_record_id": "synthetic-medstmt-005",
+      "content_hash": "synthetic-hash-507",
+      "imported_state": "duplicate",
+      "raw_payload": {"resourceType":"MedicationStatement","id":"synthetic-medstmt-005","status":"active","medicationCodeableConcept":{"text":"Albuterol 90 mcg inhaler"},"effectiveDateTime":"2025-08-11"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000508",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "MedicationRequest",
+      "source_record_id": "synthetic-medreq-006",
+      "content_hash": "synthetic-hash-508",
+      "imported_state": "unconfirmed",
+      "raw_payload": {"resourceType":"MedicationRequest","id":"synthetic-medreq-006","status":"active","medicationCodeableConcept":{"text":"Cetirizine 10 mg"},"dosageInstruction":[{"text":"Once daily"}],"authoredOn":"2026-01-15"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000509",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000202",
+      "fhir_resource_type": "AllergyIntolerance",
+      "source_record_id": "synthetic-allergy-002",
+      "content_hash": "synthetic-hash-509",
+      "imported_state": "duplicate",
+      "raw_payload": {"resourceType":"AllergyIntolerance","id":"synthetic-allergy-002","clinicalStatus":{"text":"active"},"code":{"text":"Penicillin antibiotics"},"reaction":[{"manifestation":[{"text":"skin rash"}]}]}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000510",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Condition",
+      "source_record_id": "synthetic-condition-001",
+      "content_hash": "synthetic-hash-510",
+      "imported_state": "contradictory",
+      "raw_payload": {"resourceType":"Condition","id":"synthetic-condition-001","clinicalStatus":{"text":"active"},"code":{"text":"Asthma"},"recordedDate":"2020-03-02"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000511",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000202",
+      "fhir_resource_type": "Condition",
+      "source_record_id": "synthetic-condition-002",
+      "content_hash": "synthetic-hash-511",
+      "imported_state": "contradictory",
+      "raw_payload": {"resourceType":"Condition","id":"synthetic-condition-002","clinicalStatus":{"text":"resolved"},"code":{"text":"Asthma"},"abatementDateTime":"2024-06-01"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000512",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Condition",
+      "source_record_id": "synthetic-condition-003",
+      "content_hash": "synthetic-hash-512",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Condition","id":"synthetic-condition-003","clinicalStatus":{"text":"resolved"},"code":{"text":"Childhood fracture"},"onsetDateTime":"2001-07-10","abatementDateTime":"2001-09-15"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000513",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Condition",
+      "source_record_id": "synthetic-condition-004",
+      "content_hash": "synthetic-hash-513",
+      "imported_state": "unconfirmed",
+      "raw_payload": {"resourceType":"Condition","id":"synthetic-condition-004","clinicalStatus":{"text":"active"},"code":{"text":"Seasonal allergies"},"recordedDate":"2023-04-18"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000514",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Observation",
+      "source_record_id": "synthetic-lab-002",
+      "content_hash": "synthetic-hash-514",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Observation","id":"synthetic-lab-002","status":"final","code":{"text":"Hemoglobin"},"valueQuantity":{"value":11.4,"unit":"g/dL"},"interpretation":[{"text":"low"}],"effectiveDateTime":"2024-09-10"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000515",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Observation",
+      "source_record_id": "synthetic-lab-003",
+      "content_hash": "synthetic-hash-515",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Observation","id":"synthetic-lab-003","status":"final","code":{"text":"TSH"},"valueQuantity":{"value":2.1,"unit":"mIU/L"},"effectiveDateTime":"2024-09-10"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000516",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Observation",
+      "source_record_id": "synthetic-lab-004",
+      "content_hash": "synthetic-hash-516",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Observation","id":"synthetic-lab-004","status":"final","code":{"text":"LDL cholesterol"},"valueQuantity":{"value":104,"unit":"mg/dL"},"effectiveDateTime":"2024-09-10"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000517",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Observation",
+      "source_record_id": "synthetic-lab-005",
+      "content_hash": "synthetic-hash-517",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Observation","id":"synthetic-lab-005","status":"final","code":{"text":"HDL cholesterol"},"valueQuantity":{"value":58,"unit":"mg/dL"},"effectiveDateTime":"2024-09-10"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000518",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Observation",
+      "source_record_id": "synthetic-lab-006",
+      "content_hash": "synthetic-hash-518",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Observation","id":"synthetic-lab-006","status":"final","code":{"text":"Triglycerides"},"valueQuantity":{"value":92,"unit":"mg/dL"},"effectiveDateTime":"2024-09-10"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000519",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Observation",
+      "source_record_id": "synthetic-lab-007",
+      "content_hash": "synthetic-hash-519",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Observation","id":"synthetic-lab-007","status":"final","code":{"text":"Creatinine"},"valueQuantity":{"value":0.8,"unit":"mg/dL"},"effectiveDateTime":"2024-09-10"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000520",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Observation",
+      "source_record_id": "synthetic-lab-008",
+      "content_hash": "synthetic-hash-520",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Observation","id":"synthetic-lab-008","status":"final","code":{"text":"Sodium"},"valueQuantity":{"value":139,"unit":"mmol/L"},"effectiveDateTime":"2024-09-10"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000521",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Observation",
+      "source_record_id": "synthetic-lab-009",
+      "content_hash": "synthetic-hash-521",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Observation","id":"synthetic-lab-009","status":"final","code":{"text":"Potassium"},"valueQuantity":{"value":4.2,"unit":"mmol/L"},"effectiveDateTime":"2024-09-10"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000522",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Observation",
+      "source_record_id": "synthetic-lab-010",
+      "content_hash": "synthetic-hash-522",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Observation","id":"synthetic-lab-010","status":"final","code":{"text":"Vitamin D"},"valueQuantity":{"value":31,"unit":"ng/mL"},"effectiveDateTime":"2024-09-10"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000523",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Observation",
+      "source_record_id": "synthetic-lab-011",
+      "content_hash": "synthetic-hash-523",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Observation","id":"synthetic-lab-011","status":"final","code":{"text":"ALT"},"valueQuantity":{"value":18,"unit":"U/L"},"effectiveDateTime":"2024-09-10"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000524",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "DiagnosticReport",
+      "source_record_id": "synthetic-lab-012",
+      "content_hash": "synthetic-hash-524",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"DiagnosticReport","id":"synthetic-lab-012","status":"final","code":{"text":"Annual laboratory panel"},"effectiveDateTime":"2024-09-10"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000525",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Procedure",
+      "source_record_id": "synthetic-procedure-001",
+      "content_hash": "synthetic-hash-525",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Procedure","id":"synthetic-procedure-001","status":"completed","code":{"text":"Appendectomy"},"performedDateTime":"2012-06-20"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000526",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Procedure",
+      "source_record_id": "synthetic-procedure-002",
+      "content_hash": "synthetic-hash-526",
+      "imported_state": "incomplete",
+      "raw_payload": {"resourceType":"Procedure","id":"synthetic-procedure-002","status":"completed","code":{"text":"Wisdom tooth extraction"}}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000527",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Procedure",
+      "source_record_id": "synthetic-procedure-003",
+      "content_hash": "synthetic-hash-527",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Procedure","id":"synthetic-procedure-003","status":"completed","code":{"text":"Knee MRI"},"performedDateTime":"2022-11-03"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000528",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Immunization",
+      "source_record_id": "synthetic-immunization-001",
+      "content_hash": "synthetic-hash-528",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Immunization","id":"synthetic-immunization-001","status":"completed","vaccineCode":{"text":"Influenza vaccine"},"occurrenceDateTime":"2023-10-15"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000529",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Immunization",
+      "source_record_id": "synthetic-immunization-002",
+      "content_hash": "synthetic-hash-529",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Immunization","id":"synthetic-immunization-002","status":"completed","vaccineCode":{"text":"COVID-19 vaccine"},"occurrenceDateTime":"2022-09-20"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000530",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Immunization",
+      "source_record_id": "synthetic-immunization-003",
+      "content_hash": "synthetic-hash-530",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Immunization","id":"synthetic-immunization-003","status":"completed","vaccineCode":{"text":"Tdap vaccine"},"occurrenceDateTime":"2018-05-02"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000531",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Immunization",
+      "source_record_id": "synthetic-immunization-004",
+      "content_hash": "synthetic-hash-531",
+      "imported_state": "unconfirmed",
+      "raw_payload": {"resourceType":"Immunization","id":"synthetic-immunization-004","status":"completed","vaccineCode":{"text":"Hepatitis B vaccine"},"occurrenceDateTime":"2000-04-12"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000532",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Encounter",
+      "source_record_id": "synthetic-encounter-001",
+      "content_hash": "synthetic-hash-532",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Encounter","id":"synthetic-encounter-001","status":"finished","type":[{"text":"Annual wellness visit"}],"period":{"start":"2024-09-10T08:30:00Z","end":"2024-09-10T09:10:00Z"}}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000533",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Encounter",
+      "source_record_id": "synthetic-encounter-002",
+      "content_hash": "synthetic-hash-533",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Encounter","id":"synthetic-encounter-002","status":"finished","type":[{"text":"Urgent care visit"}],"period":{"start":"2023-12-04T17:00:00Z","end":"2023-12-04T17:40:00Z"}}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000534",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Encounter",
+      "source_record_id": "synthetic-encounter-003",
+      "content_hash": "synthetic-hash-534",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Encounter","id":"synthetic-encounter-003","status":"finished","type":[{"text":"Medication follow-up"}],"period":{"start":"2022-05-06T10:00:00Z","end":"2022-05-06T10:20:00Z"}}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000535",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Encounter",
+      "source_record_id": "synthetic-encounter-004",
+      "content_hash": "synthetic-hash-535",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Encounter","id":"synthetic-encounter-004","status":"finished","type":[{"text":"Telehealth visit"}],"period":{"start":"2021-01-12T14:00:00Z","end":"2021-01-12T14:25:00Z"}}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000536",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Encounter",
+      "source_record_id": "synthetic-encounter-005",
+      "content_hash": "synthetic-hash-536",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Encounter","id":"synthetic-encounter-005","status":"finished","type":[{"text":"Preventive visit"}],"period":{"start":"2019-08-22T09:00:00Z","end":"2019-08-22T09:45:00Z"}}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000537",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Patient",
+      "source_record_id": "synthetic-patient-001",
+      "content_hash": "synthetic-hash-537",
+      "imported_state": "unconfirmed",
+      "raw_payload": {"resourceType":"Patient","id":"synthetic-patient-001","name":[{"text":"Alex Sample"}],"birthDate":"1988-04-12","telecom":[{"system":"phone","value":"555-0100"}]}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000538",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000202",
+      "fhir_resource_type": "Patient",
+      "source_record_id": "synthetic-patient-002",
+      "content_hash": "synthetic-hash-538",
+      "imported_state": "contradictory",
+      "raw_payload": {"resourceType":"Patient","id":"synthetic-patient-002","name":[{"text":"Alex J. Sample"}],"birthDate":"1988-04-12","telecom":[{"system":"phone","value":"555-0199"}]}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000539",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "RelatedPerson",
+      "source_record_id": "synthetic-contact-001",
+      "content_hash": "synthetic-hash-539",
+      "imported_state": "incomplete",
+      "raw_payload": {"resourceType":"RelatedPerson","id":"synthetic-contact-001","relationship":[{"text":"Emergency contact"}],"name":[{"text":"Jordan Sample"}]}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000540",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "PractitionerRole",
+      "source_record_id": "synthetic-practitioner-role-001",
+      "content_hash": "synthetic-hash-540",
+      "imported_state": "unconfirmed",
+      "raw_payload": {"resourceType":"PractitionerRole","id":"synthetic-practitioner-role-001","specialty":[{"text":"Primary care"}]}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000541",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "Organization",
+      "source_record_id": "synthetic-organization-001",
+      "content_hash": "synthetic-hash-541",
+      "imported_state": "historical",
+      "raw_payload": {"resourceType":"Organization","id":"synthetic-organization-001","name":"Riverbend Health Sandbox"}
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000542",
+      "import_batch_id": "00000000-0000-4000-8000-000000000401",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "fhir_resource_type": "CareTeam",
+      "source_record_id": "synthetic-careteam-001",
+      "content_hash": "synthetic-hash-542",
+      "imported_state": "unconfirmed",
+      "raw_payload": {"resourceType":"CareTeam","id":"synthetic-careteam-001","status":"active","name":"Synthetic primary care team"}
+    }
+  ],
+  "medications": [
+    {
+      "id": "00000000-0000-4000-8000-000000000601",
+      "raw_source_record_id": "00000000-0000-4000-8000-000000000501",
+      "medication_name": "Lisinopril",
+      "dose": "10 mg",
+      "frequency": null,
+      "start_date": "2021-04-12",
+      "source_status": "active",
+      "imported_state": "uncertain",
+      "is_current": false,
+      "confirmation_needed": true
+    }
+  ],
+  "allergies": [
+    {
+      "id": "00000000-0000-4000-8000-000000000701",
+      "raw_source_record_id": "00000000-0000-4000-8000-000000000502",
+      "substance": "Penicillin",
+      "reaction": "rash",
+      "clinical_status": "active",
+      "imported_state": "unconfirmed",
+      "is_current": false,
+      "confirmation_needed": true
+    }
+  ],
+  "conditions": [
+    {
+      "id": "00000000-0000-4000-8000-000000000801",
+      "raw_source_record_id": "00000000-0000-4000-8000-000000000510",
+      "condition_name": "Asthma",
+      "clinical_status": "active",
+      "recorded_date": "2020-03-02",
+      "imported_state": "unconfirmed",
+      "is_current": false,
+      "confirmation_needed": true
+    }
+  ],
+  "laboratory_results": [
+    {
+      "id": "00000000-0000-4000-8000-000000000901",
+      "raw_source_record_id": "00000000-0000-4000-8000-000000000503",
+      "test_name": "Hemoglobin A1c",
+      "value_number": 5.4,
+      "unit": "%",
+      "reference_range": "4.0-5.6",
+      "interpretation": "normal",
+      "result_date": "2024-09-10T09:00:00Z",
+      "imported_state": "historical"
+    }
+  ],
+  "procedures": [
+    {
+      "id": "00000000-0000-4000-8000-000000001001",
+      "raw_source_record_id": "00000000-0000-4000-8000-000000000525",
+      "procedure_name": "Appendectomy",
+      "performed_date": "2012-06-20",
+      "imported_state": "historical"
+    }
+  ],
+  "immunizations": [
+    {
+      "id": "00000000-0000-4000-8000-000000001301",
+      "raw_source_record_id": "00000000-0000-4000-8000-000000000528",
+      "vaccine_name": "Influenza vaccine",
+      "occurrence_date": "2023-10-15",
+      "status": "completed",
+      "imported_state": "historical"
+    }
+  ],
+  "encounters": [
+    {
+      "id": "00000000-0000-4000-8000-000000001401",
+      "raw_source_record_id": "00000000-0000-4000-8000-000000000532",
+      "encounter_type": "Annual wellness visit",
+      "encounter_class": "ambulatory",
+      "source_organization": "Riverbend Health Sandbox",
+      "started_at": "2024-09-10T08:30:00Z",
+      "ended_at": "2024-09-10T09:10:00Z",
+      "imported_state": "historical"
+    }
+  ],
+  "questionnaire_questions": [
+    {
+      "id": "00000000-0000-4000-8000-000000001101",
+      "category": "Medications",
+      "question_type": "confirm_current",
+      "prompt": "Are you currently taking Lisinopril 10 mg?",
+      "context": "Imported from Riverbend Health Sandbox. Last seen in records on 2021-04-12. No recent refill was imported.",
+      "progress_label": "Medications: 3 of 5",
+      "required": true,
+      "status": "open"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000001102",
+      "category": "Allergies",
+      "question_type": "confirm_current",
+      "prompt": "Do you have a Penicillin allergy or reaction?",
+      "context": "Imported allergy listed reaction as rash.",
+      "progress_label": "Allergies: 1 of 2",
+      "required": true,
+      "status": "open"
+    }
+  ],
+  "field_statuses": [
+    {
+      "category": "Medications",
+      "field_key": "active_medications",
+      "status": "imported_uncertain",
+      "status_reason": "Medication appears active in a 2021 source record but is old enough to require confirmation."
+    },
+    {
+      "category": "Contacts",
+      "field_key": "emergency_contact",
+      "status": "missing",
+      "status_reason": "No emergency contact imported."
+    }
+  ],
+  "ai_proposals": [
+    {
+      "id": "00000000-0000-4000-8000-000000001201",
+      "proposal_type": "suggest_question",
+      "proposed_value": {
+        "prompt": "Are you currently taking Lisinopril 10 mg?",
+        "reason": "Imported medication is old and current status is uncertain."
+      },
+      "confidence_label": "medium",
+      "status": "proposed"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+Work in the HealthStartup repository. Read AGENTS.md, then replace/add the uploaded docs folder and read docs/CODEX_RULES.md plus every document it references. Build the complete structural MVP exactly as specified.
+
+Use only the synthetic fixture and browser-local persistence. Implement the complete demo-account, source-selection, synthetic authorization, import, manual-entry, questionnaire, profile-home, state-transition, answer-review, and reset flows. Add and run the tests required by TEST_SCENARIOS.md and VERIFICATION_PLAN.md.
+
+Do not expand scope: no real authentication or passwords, APIs, OAuth, external health connections, secrets, deployment, real health data, diagnosis/treatment, or medical-information viewer. Keep the interface low-fidelity, grayscale, and functional. Do not stop at planning; implement, verify, and report results.
