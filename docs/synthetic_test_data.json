@@ -1,0 +1,250 @@
+{
+  "note": "Synthetic planning data only. Do not use real health information.",
+  "users": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "email": "synthetic.patient@example.invalid"
+    }
+  ],
+  "patient_profiles": [
+    {
+      "id": "00000000-0000-4000-8000-000000000101",
+      "user_id": "00000000-0000-4000-8000-000000000001",
+      "legal_name": "Alex Sample",
+      "birth_date": "1988-04-12",
+      "phone": "555-0100",
+      "email": "synthetic.patient@example.invalid",
+      "address": {
+        "line1": "100 Example Street",
+        "city": "Sampletown",
+        "state": "CA",
+        "postal_code": "90000"
+      },
+      "emergency_contact": null
+    }
+  ],
+  "source_organizations": [
+    {
+      "id": "00000000-0000-4000-8000-000000000201",
+      "name": "Riverbend Health Sandbox",
+      "source_type": "mychart_health_system",
+      "is_synthetic": true
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000202",
+      "name": "Apple Health Synthetic Export",
+      "source_type": "apple_health",
+      "is_synthetic": true
+    }
+  ],
+  "source_connections": [
+    {
+      "id": "00000000-0000-4000-8000-000000000301",
+      "patient_profile_id": "00000000-0000-4000-8000-000000000101",
+      "source_organization_id": "00000000-0000-4000-8000-000000000201",
+      "connection_state": "connected_sandbox"
+    }
+  ],
+  "import_batches": [
+    {
+      "id": "00000000-0000-4000-8000-000000000401",
+      "source_connection_id": "00000000-0000-4000-8000-000000000301",
+      "status": "completed",
+      "imported_record_count": 42,
+      "summary": {
+        "medications": 6,
+        "allergies": 2,
+        "conditions": 4,
+        "laboratory_results": 12,
+        "procedures": 3,
+        "immunizations": 4,
+        "encounters": 5,
+        "other": 6
+      }
+    }
+  ],
+  "raw_source_records": [
+    {
+      "id": "00000000-0000-4000-8000-000000000501",
+      "fhir_resource_type": "MedicationStatement",
+      "source_record_id": "synthetic-medstmt-001",
+      "imported_state": "uncertain",
+      "raw_payload": {
+        "resourceType": "MedicationStatement",
+        "id": "synthetic-medstmt-001",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril 10 mg tablet"
+        },
+        "effectiveDateTime": "2021-04-12"
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000502",
+      "fhir_resource_type": "AllergyIntolerance",
+      "source_record_id": "synthetic-allergy-001",
+      "imported_state": "unconfirmed",
+      "raw_payload": {
+        "resourceType": "AllergyIntolerance",
+        "id": "synthetic-allergy-001",
+        "clinicalStatus": {
+          "text": "active"
+        },
+        "code": {
+          "text": "Penicillin"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "rash"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000503",
+      "fhir_resource_type": "Observation",
+      "source_record_id": "synthetic-lab-001",
+      "imported_state": "historical",
+      "raw_payload": {
+        "resourceType": "Observation",
+        "id": "synthetic-lab-001",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin A1c"
+        },
+        "valueQuantity": {
+          "value": 5.4,
+          "unit": "%"
+        },
+        "effectiveDateTime": "2024-09-10"
+      }
+    }
+  ],
+  "medications": [
+    {
+      "id": "00000000-0000-4000-8000-000000000601",
+      "medication_name": "Lisinopril",
+      "dose": "10 mg",
+      "frequency": null,
+      "start_date": "2021-04-12",
+      "source_status": "active",
+      "imported_state": "uncertain",
+      "is_current": false,
+      "confirmation_needed": true
+    }
+  ],
+  "allergies": [
+    {
+      "id": "00000000-0000-4000-8000-000000000701",
+      "substance": "Penicillin",
+      "reaction": "rash",
+      "clinical_status": "active",
+      "imported_state": "unconfirmed",
+      "is_current": false,
+      "confirmation_needed": true
+    }
+  ],
+  "conditions": [
+    {
+      "id": "00000000-0000-4000-8000-000000000801",
+      "condition_name": "Asthma",
+      "clinical_status": "active",
+      "recorded_date": "2020-03-02",
+      "imported_state": "unconfirmed",
+      "is_current": false,
+      "confirmation_needed": true
+    }
+  ],
+  "laboratory_results": [
+    {
+      "id": "00000000-0000-4000-8000-000000000901",
+      "test_name": "Hemoglobin A1c",
+      "value_number": 5.4,
+      "unit": "%",
+      "reference_range": "4.0-5.6",
+      "interpretation": "normal",
+      "result_date": "2024-09-10T09:00:00Z",
+      "imported_state": "historical"
+    }
+  ],
+  "procedures": [
+    {
+      "id": "00000000-0000-4000-8000-000000001001",
+      "procedure_name": "Appendectomy",
+      "performed_date": "2012-06-20",
+      "imported_state": "historical"
+    }
+  ],
+  "immunizations": [
+    {
+      "id": "00000000-0000-4000-8000-000000001301",
+      "vaccine_name": "Influenza vaccine",
+      "occurrence_date": "2023-10-15",
+      "status": "completed",
+      "imported_state": "historical"
+    }
+  ],
+  "encounters": [
+    {
+      "id": "00000000-0000-4000-8000-000000001401",
+      "encounter_type": "Annual wellness visit",
+      "encounter_class": "ambulatory",
+      "source_organization": "Riverbend Health Sandbox",
+      "started_at": "2024-09-10T08:30:00Z",
+      "ended_at": "2024-09-10T09:10:00Z",
+      "imported_state": "historical"
+    }
+  ],
+  "questionnaire_questions": [
+    {
+      "id": "00000000-0000-4000-8000-000000001101",
+      "category": "Medications",
+      "question_type": "confirm_current",
+      "prompt": "Are you currently taking Lisinopril 10 mg?",
+      "context": "Imported from Riverbend Health Sandbox. Last seen in records on 2021-04-12. No recent refill was imported.",
+      "progress_label": "Medications: 3 of 5",
+      "required": true,
+      "status": "open"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000001102",
+      "category": "Allergies",
+      "question_type": "confirm_current",
+      "prompt": "Do you have a Penicillin allergy or reaction?",
+      "context": "Imported allergy listed reaction as rash.",
+      "progress_label": "Allergies: 1 of 2",
+      "required": true,
+      "status": "open"
+    }
+  ],
+  "field_statuses": [
+    {
+      "category": "Medications",
+      "field_key": "active_medications",
+      "status": "imported_uncertain",
+      "status_reason": "Medication appears active in a 2021 source record but is old enough to require confirmation."
+    },
+    {
+      "category": "Contacts",
+      "field_key": "emergency_contact",
+      "status": "missing",
+      "status_reason": "No emergency contact imported."
+    }
+  ],
+  "ai_proposals": [
+    {
+      "id": "00000000-0000-4000-8000-000000001201",
+      "proposal_type": "suggest_question",
+      "proposed_value": {
+        "prompt": "Are you currently taking Lisinopril 10 mg?",
+        "reason": "Imported medication is old and current status is uncertain."
+      },
+      "confidence_label": "medium",
+      "status": "proposed"
+    }
+  ]
+}
